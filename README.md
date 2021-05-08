@@ -1,1 +1,1 @@
-# Snake with a Genetic Algorithm
+# Snake - Genetic Algorithm
