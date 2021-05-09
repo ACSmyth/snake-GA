@@ -1,7 +1,5 @@
 import random
 from os import environ
-environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
-import pygame
 import time
 import importlib.util
 import pickle
@@ -234,7 +232,7 @@ with open('best_net.pkl', 'rb') as f:
     best_net = pickle.load(f)
 
 all_weights = [neuron.weights for layer in best_net.layers[:len(best_net.layers)-1] for neuron in layer.neurons]
-print(all_weights)
+#print(all_weights)
 
 # run a game with the best agent
 for z in range(5):
@@ -243,9 +241,6 @@ for z in range(5):
         gs.tick_game(best_net, input_func)
         display_grid(gs)
         time.sleep(0.1)
-
-
-
 
 
 
