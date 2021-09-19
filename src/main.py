@@ -1,4 +1,4 @@
-from os import environ
+import os
 import time
 import importlib.util
 import pickle
@@ -90,11 +90,13 @@ def run_game_func(agent, input_func):
 # Final GameState -> Number
 def fitness_func(gs):
     return gs.get_score()
-
-with open('best_net.pkl', 'rb') as f:
+print(__file__)
+print(os.path.dirname(__file__))
+with open(os.path.join(os.path.dirname(__file__), os.pardir, 'resources/best_net.pkl'), 'rb') as f:
     best_net = pickle.load(f)
 
 all_weights = [neuron.weights for layer in best_net.layers[:len(best_net.layers)-1] for neuron in layer.neurons]
+
 
 # run a game with the best agent
 for z in range(5):
